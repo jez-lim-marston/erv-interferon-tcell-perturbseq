@@ -1,0 +1,9 @@
+target,reconciliation,note
+SETDB1,CONFIRMED,"80 nM Kd probe (pchembl 7.1, CHEMBL5569118); probe document_year=2024 (RSC Med Chem) — VERIFIED, matches user's sub-100nM probe (2024). No clinical compound."
+KDM4C,CONFIRMED,best 1.3 nM EC50 / 2.2 nM IC50; 38 sub-100nM IC50/Ki; classic CHEMBL316034 series document_year 2010-2016 (matches user's 2014/2016) — VERIFIED. QC6352 max_phase=null (preclinical).
+KDM4B,CONFIRMED-EXTENDED,"best 4 nM, 63 sub-100nM; earliest chemistry document_year 2014 — VERIFIED. Family series (user cited PROTAC/degrader across A-C)."
+KDM4A,REFINED,"only 700 nM best IC50, 0 sub-100nM — weakest of the family; pan-KDM4 tools favor B/C over A."
+TRIM28,DISCREPANCY (minor),"user said 'no chemical matter'; ChEMBL shows 78.69 nM Kd but it's a Kinobead proteomic BINDING readout (promiscuous selectivity assay), NOT a developed inhibitor — user's substantive point (no real TRIM28 chemical program) stands."
+ATF7IP,CONFIRMED,"no ChEMBL target — undrugged, matches user."
+KZFPs (9),CONFIRMED,"0/9 have any ChEMBL target — undrugged, matches user's KZFP prediction."
+SUV39H2,NOTE,"611 sub-100nM (best 1.77 nM) — mature series exists, but SUV39 is the comparator/dissociation arm, not a candidate; not druggability-relevant to the hypothesis."

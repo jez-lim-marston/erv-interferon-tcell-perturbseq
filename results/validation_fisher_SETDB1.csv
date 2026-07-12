@@ -1,0 +1,4 @@
+target,condition,up_and_ERV,up_noERV,bg_ERV,bg_noERV,odds_ratio,fisher_p,method
+SETDB1,Rest,222,95,3494,7434,4.972,2.034267735654248e-42,"raw Fisher (unmatched bg, validation only)"
+SETDB1,Stim8hr,175,65,3772,7873,5.619,6.236343397893712e-37,"raw Fisher (unmatched bg, validation only)"
+SETDB1,Stim48hr,162,77,3785,7920,4.402,1.5721265119419008e-28,"raw Fisher (unmatched bg, validation only)"

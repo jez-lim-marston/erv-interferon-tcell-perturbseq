@@ -1,0 +1,5 @@
+source,build,access,cell_type,build_verified,note
+RepeatMasker,hg38,UCSC api.genome.ucsc.edu (rmsk track),N/A (genome annotation),YES (UCSC hg38 track),repClass LTR/LINE/SINE/DNA + repFamily/repName + coords
+H3K9me3 ChIP-seq,GRCh38,ENCODE + encode-public S3 (granted),CD4+ alpha-beta T cell,YES (ENCODE assembly=GRCh38; peaks chr-prefixed hg38),Per-condition: ENCSR453GNY (resting)->Rest; ENCSR692ICP (PMA/iono-stim)->Stim; ENCSR787WLV donor. Replicated-peak BEDs.
+SETDB1 ChIP-seq,GRCh38,ENCODE (cell lines only),K562/HepG2/U2OS/HEK293 only,N/A (not used as filter),"NO CD4+ SETDB1 ChIP exists (ENCODE=cell-line only; Blueprint does histone marks only, no TF ChIP; PubMed mouse/cell-line only per user). Used ONLY as annotation, never filter."
+Perturb-seq gene annotation,Ensembl stable IDs (build-independent),Part 1 var (pseudobulk_var.parquet),CD4+ T cell,"PENDING: IDs build-independent; hg38 TSS coords to be pulled from GENCODE/Ensembl hg38 GTF in Step 2, then build-match locked","18129 genes w/ Ensembl IDs. No coordinates in Part 1 data; build match is enforced at TSS-annotation step, not yet confirmed."

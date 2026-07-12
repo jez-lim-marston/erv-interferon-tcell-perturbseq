@@ -1,0 +1,10 @@
+rank,candidate,druggability_score,erv_validation,confidence_flag
+1,KDM4C,7.95,directly measured (antagonism),"LEAD ERV-MECHANISM NODE — DIRECTLY MEASURED. ERV-proximal antagonism to SETDB1 (r=-0.27) confirmed by direct perturbation (no longer inferred); matches H3K9me3-eraser mechanism in RA literature; strong selective chemistry (1.3 nM, 38 sub-100nM). Antagonism is modest/locus-specific (rheostat, not switch): nudges ERV-proximal genes, does NOT reverse phenotype (module score & genome-wide null under paralog redundancy)."
+2,KDM4B,6.75,NOT ERV-validated (cGAS-axis literature only),"DISTINCT CANDIDATE — cGAS-AXIS, LITERATURE-ONLY, NOT ERV-VALIDATED. Does NOT show ERV-proximal antagonism in our data (r~0); rationale rests on the SEPARATE cGAS/IFN mechanism (published cGAS literature), not our ERV finding. Strong selective chemistry (4 nM). Do NOT present as our validated eraser."
+3,PPHLN1,5.95,—,"MECHANISM STRONG / CHEMISTRY THIN — HUSH, robust ERV-enrichment (Part 2); little/no chemical matter."
+4,KDM4A,5.65,directly measured (antagonism),"SUPPORTING MECHANISTIC EVIDENCE, NOT THE DRUG CANDIDATE — also shows ERV-proximal antagonism (r=-0.27, directly measured) but weak chemistry (700 nM, 0 sub-100nM). Corroborates the eraser mechanism; deprioritized as a candidate."
+5,SETDB1,5.65,—,"MECHANISM STRONGEST / DRUGGABILITY POOR — primary ERV-enrichment hit but pan-essential; probe exists, selective inhibition implausible."
+6,TASOR,4.95,—,"MECHANISM STRONG / CHEMISTRY THIN — HUSH, robust ERV-enrichment; undrugged."
+7,KZFP_layer,4.800000000000001,—,"REGULATORY-HIERARCHY NODE / GENETICALLY UNSUPPORTED + UNDRUGGED — the recruiters, high selectivity in principle, but autoimmune GWAS DEPLETED and no chemical matter; hypothesis-generating only."
+8,TRIM28,3.55,—,"UNDERPOWERED MECHANISM / DRUGGABILITY POOR — few up-genes, null ERV-enrichment; broadly essential."
+9,ATF7IP,2.65,—,NEAR-NULL (weak KD) — absence of effect not interpretable; undrugged.

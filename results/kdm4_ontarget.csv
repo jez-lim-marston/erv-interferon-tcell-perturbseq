@@ -1,0 +1,10 @@
+target,condition,kd_cpm,ntc_cpm,log2fc,pct_knockdown,n_kd
+KDM4A,Rest,5.44,63.47,-3.323,91.4,7
+KDM4A,Stim8hr,4.54,40.25,-2.895,88.7,7
+KDM4A,Stim48hr,9.81,64.88,-2.607,84.9,7
+KDM4B,Rest,4.66,54.97,-3.305,91.5,8
+KDM4B,Stim8hr,2.95,43.46,-3.492,93.2,8
+KDM4B,Stim48hr,9.06,100.58,-3.336,91.0,8
+KDM4C,Rest,32.2,104.42,-1.667,69.2,8
+KDM4C,Stim8hr,21.83,64.59,-1.522,66.2,8
+KDM4C,Stim48hr,32.38,86.81,-1.395,62.7,8

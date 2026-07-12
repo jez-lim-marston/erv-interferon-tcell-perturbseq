@@ -1,0 +1,16 @@
+target,condition,n_ervprox_genes,pearson_r,pearson_p,frac_opposite_sign,mean_kd_lfc_on_setdb1up,median_lfc_on_setdb1up,wilcoxon_p,scope
+KDM4A,Rest,222,-0.117,0.0832,0.797,-0.275,-0.237,0.0,ERV_proximal_SETDB1up
+KDM4B,Rest,222,-0.161,0.0164,0.554,-0.049,-0.023,0.0346,ERV_proximal_SETDB1up
+KDM4C,Rest,222,-0.138,0.0399,0.653,-0.132,-0.092,0.0,ERV_proximal_SETDB1up
+PPHLN1,Rest,222,0.205,0.0022,0.297,0.349,0.262,0.0,ERV_proximal_SETDB1up
+TASOR,Rest,222,-0.179,0.0076,0.396,0.053,0.092,0.1266,ERV_proximal_SETDB1up
+KDM4A,Stim8hr,175,-0.501,0.0,0.794,-0.296,-0.258,0.0,ERV_proximal_SETDB1up
+KDM4B,Stim8hr,175,-0.081,0.2868,0.383,0.052,0.057,0.0027,ERV_proximal_SETDB1up
+KDM4C,Stim8hr,175,-0.309,0.0,0.663,-0.143,-0.1,0.0,ERV_proximal_SETDB1up
+PPHLN1,Stim8hr,175,0.229,0.0023,0.211,0.448,0.357,0.0,ERV_proximal_SETDB1up
+TASOR,Stim8hr,175,-0.159,0.0354,0.394,0.104,0.115,0.0143,ERV_proximal_SETDB1up
+KDM4A,Stim48hr,162,-0.185,0.0184,0.716,-0.241,-0.204,0.0,ERV_proximal_SETDB1up
+KDM4B,Stim48hr,162,0.122,0.1224,0.407,0.044,0.053,0.0285,ERV_proximal_SETDB1up
+KDM4C,Stim48hr,162,-0.365,0.0,0.654,-0.161,-0.08,0.0,ERV_proximal_SETDB1up
+PPHLN1,Stim48hr,162,0.297,0.0001,0.16,0.651,0.658,0.0,ERV_proximal_SETDB1up
+TASOR,Stim48hr,162,-0.022,0.7857,0.395,0.118,0.142,0.0103,ERV_proximal_SETDB1up

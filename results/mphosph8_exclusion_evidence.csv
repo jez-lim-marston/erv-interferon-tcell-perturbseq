@@ -1,0 +1,9 @@
+target_canonical,dataset_name,authors_DE_stats_rows,present_as_contrast_category,our_keep_for_DE_pb,excluded
+SETDB1,SETDB1,3,True,24,False
+TRIM28,TRIM28,3,True,12,False
+ATF7IP,ATF7IP,3,True,24,False
+TASOR,TASOR,3,True,21,False
+MPP8,MPHOSPH8,0,False,0,True
+PPHLN1,PPHLN1,3,True,24,False
+SUV39H1,SUV39H1,3,True,18,False
+SUV39H2,SUV39H2,3,True,20,False

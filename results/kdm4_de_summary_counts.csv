@@ -1,0 +1,10 @@
+target,condition,n_DE,n_up,n_down,n_tested
+KDM4A,Rest,2,0,2,12941
+KDM4A,Stim48hr,10,4,6,13478
+KDM4A,Stim8hr,2,1,1,13067
+KDM4B,Rest,1,0,1,12918
+KDM4B,Stim48hr,1,0,1,13443
+KDM4B,Stim8hr,2,0,2,13043
+KDM4C,Rest,2,1,1,12916
+KDM4C,Stim48hr,2,1,1,13445
+KDM4C,Stim8hr,1,0,1,13041
