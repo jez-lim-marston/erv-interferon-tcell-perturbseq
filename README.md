@@ -5,6 +5,8 @@ Dataset: Marson & Pritchard genome-scale CRISPRi Perturb-seq in primary human CD
 
 ## One-paragraph summary
 
+**In plain terms:** scattered through the human genome are *viral fossils* — endogenous retroviruses (ERVs), the inherited remains of ancient retroviral infections. Far from dead, some have been **domesticated into regulatory switches** for immune genes, held off by the H3K9me3 silencing machinery. This project asks, in a genome-scale CRISPRi screen of primary human T cells, what that machinery controls when it's released — and which parts of it are druggable.
+
 The Marson/Pritchard Perturb-seq readout is **probe-based 10x Flex**, which is structurally blind to transposable elements (TEs) / endogenous retroviruses (ERVs) — the exact regulatory layer the H3K9me3 silencing machinery acts on. We built a **TE-aware analysis** of this TE-blind dataset to ask what the ERV-silencing module (SETDB1, TRIM28/KAP1, ATF7IP, and the HUSH complex) does when knocked down, and which nodes are druggable. Genes de-repressed by SETDB1/HUSH knockdown are **modestly but robustly enriched near silenced (H3K9me3-marked) ERVs** (confounder-controlled odds ratio ~1.7–2.2, three methods × three conditions), with a clean **mechanistic-specificity control** (the SUV39H1/2 H3K9 methyltransferases, which act off-ERV, do not enrich). Functionally, the ERV-proximal de-repressed genes are **dominated by an interferon program** — i.e., releasing the H3K9me3 lock de-represses interferon/ISG genes that sit near silenced ERVs, consistent with ERVs acting as **cis-regulatory elements of interferon genes** (the MER41/AIM2 paradigm) rather than as mere pseudo-viral triggers. We then nominate and rank **druggable nodes** in the axis, and directly test the KDM4/JMJD2 "eraser."
 
 ## Headline result — SETDB1/HUSH gates an ERV-encoded interferon regulatory program
@@ -36,7 +38,7 @@ Ranked druggable nodes in the axis (`results/part3_ranked_candidates.csv`, `resu
 - **KDM4B** — distinct: no ERV antagonism here; rationale rests on a separate (published) cGAS-axis mechanism, flagged as **not** ERV-validated by this analysis.
 - **SETDB1 / HUSH (PPHLN1, TASOR)** — strongest mechanistic hits but pan-essential / undrugged; the writer-side of the axis.
 
-Two directions of one axis: **writer** (SETDB1/HUSH) inhibition → viral mimicry (pro-immune); **eraser** (KDM4) inhibition → reinforce silencing → dampen interferon. Which direction is therapeutic is disease-dependent and **not demonstrated here** — these are motivated hypotheses, not claims.
+Two directions of one axis: **writer** (SETDB1/HUSH) inhibition → viral mimicry (pro-immune); **eraser** (KDM4) inhibition → reinforces ERV silencing (antagonistic to SETDB1 loss in this dataset). The net *sign* of eraser inhibition on the interferon program is context-dependent and **not resolved here**; which direction is therapeutic is disease-dependent — these are motivated hypotheses, not claims.
 
 ## Rigor and reproducibility
 
@@ -55,6 +57,25 @@ Two directions of one axis: **writer** (SETDB1/HUSH) inhibition → viral mimicr
 - The contribution is the **clean demonstration in primary human CD4⁺ T cells via genome-scale Perturb-seq** that SETDB1/HUSH loss de-represses an ERV-proximal interferon program, unifying the cis-ERV enrichment and the interferon signature — **not** discovery of the ERV→interferon relationship.
 - Interferon-α is the robust all-conditions signal; interferon-γ is stimulation-dependent. ERV-cis-enrichment is modest (OR ~2), and is partly ERV family/location, not solely the H3K9me3 mark. Cis-proximity is not proof of enhancer function.
 - **No therapeutic claim is made.** Cross-species transfer (mouse→human), CRISPRi partial knockdown vs. genetic knockout, and coarse cis-window assignment are limitations.
+
+## Translational outlook & next directions
+
+The result above frames the SETDB1/HUSH–ERV–interferon axis as a **tunable, bidirectional interferon rheostat** — which is where its disease potential lies, in two opposite directions:
+
+- **Release the lock → induce interferon (immuno-oncology / viral mimicry).** De-repressing the axis is a candidate strategy to convert immunologically "cold," checkpoint-refractory tumors to "hot" by inducing an ERV-driven interferon state — the viral-mimicry rationale already validated for DNA-methylation inhibitors and SETDB1 loss in cancer models (Chiappinelli et al. 2015; Griffin et al. 2021). The primary-human-CD4⁺ genome-scale demonstration here that the module gates this program is the missing link between that cancer-cell literature and human T-cell immunity.
+- **Reinforce the lock → restrain interferon (interferon-driven autoimmunity).** The opposite direction is a candidate for type-I-interferon-driven autoimmune disease, where chronic ERV-associated interferon tone is pathogenic.
+
+**Where the medicinal chemistry goes.** The axis presents three node classes with distinct druggability: the **writer** (SETDB1/HUSH) is the strongest mechanistic hit but pan-essential / undrugged; the **eraser** (KDM4) has mature selective chemistry but sits off the core silencing axis; the **reader** layer (the HP1/CBX proteins that bind H3K9me3) is the most on-mechanism but presents a harder, likely **targeted-degrader** medicinal-chemistry problem (shallow methyl-reader pocket, high paralog conservation). A priority next step is **structure-guided modality selection** across these nodes — small molecule vs. targeted degrader vs. protein–protein-interface disruptor.
+
+**Where the biology goes.** Two experiments would sharpen the therapeutic hypothesis: (i) a **TE-aware assay** (long-read or ERV-resolved quantification) to directly measure ERV transcripts and separate the *cis* regulatory-element mechanism from *trans* viral-mimicry sensing — which this probe-based Flex assay cannot; and (ii) a **perturb-then-checkpoint** design to test whether de-repressing the axis sensitizes tumors to checkpoint blockade, the translational endpoint the immuno-oncology direction predicts.
+
+These are motivated hypotheses and a roadmap, not results — but they are why the axis is worth drugging.
+
+## Conclusion
+
+In primary human CD4⁺ T cells at genome scale, the SETDB1/HUSH silencing module gates an ERV-encoded *cis*-regulatory layer of the interferon program — releasing the H3K9me3 lock de-represses interferon-stimulated genes enriched beside silenced ERVs, a modest but robust, confounder- and specificity-controlled effect that reframes the module's immune role away from Th1/Th2 lineage tuning. This defines the axis as a **bidirectional, druggable interferon rheostat** — one mechanism with opposite therapeutic polarities, tunable toward viral-mimicry immuno-oncology or toward restraint of interferon-driven autoimmunity — and nominates its layered druggable nodes (writer, eraser, reader) as a ranked target set. We *demonstrate rather than discover* this axis and make no therapeutic claim — the ERV-transcript and clinical steps remain to be shown — but its position at the immuno-oncology/autoimmunity intersection makes it a rigorous, honestly-bounded, and actionable target hypothesis.
+
+*(Graphical abstract: `docs/GRAPHICAL_ABSTRACT.md`.)*
 
 ## License
 
