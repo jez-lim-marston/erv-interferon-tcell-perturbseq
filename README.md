@@ -16,7 +16,7 @@ ERVs are not silenced junk: specific ERV/LTR sequences have been co-opted as **c
 In this dataset, knocking down the SETDB1/HUSH machinery **de-represses interferon/ISG genes that are specifically enriched near silenced ERVs** — releasing the H3K9me3 lock licenses an ERV-associated interferon regulatory program *in cis*:
 
 - The de-repressed genes near silenced ERVs are **massively interferon-enriched** (over-representation: Interferon-γ Response FDR 3×10⁻¹³, Interferon-α Response FDR 3.6×10⁻¹²), including known ERV-enhancer-regulated genes (**APOL family**) and checkpoint-relevant **CD274/PD-L1**.
-- **Direction-aware GSEA** on the full SETDB1 signature confirms a broader interferon program (Interferon-α top positive-NES in all 3 conditions: Rest +1.66, Stim-8h +1.80, Stim-48h +1.74, q<0.03; Interferon-γ positive but stimulation-dependent, significant only at Stim-8h; leading edge = the classic ISG core IFITM1/2/3, OAS1, OASL, RSAD2, BST2, STAT2, IRF9) — a *trans* interferon layer on top of the cis de-repression.
+- **Direction-aware GSEA** on the full SETDB1 signature confirms a broader interferon program (Interferon-α is the top positive signature in all 3 conditions (NES Rest 1.53, Stim-8h 2.28, Stim-48h 2.30) — FDR-significant in the two stimulated conditions and a strong trend at Rest (FDR 0.14); Interferon-γ positive but stimulation-dependent, significant only at Stim-8h; leading edge = the classic ISG core IFITM1/2/3, OAS1, OASL, RSAD2, BST2, STAT2, IRF9) — a *trans* interferon layer on top of the cis de-repression.
 
 **Read precisely: ERVs constitute a SETDB1/HUSH-gated cis-regulatory layer of the interferon program in human CD4⁺ T cells** — a repressive/inducible regulatory axis (MER41/AIM2-type), gated by H3K9me3. The spatial linkage (interferon genes enriched *near* silenced ERVs) is the signature of the cis-regulatory-element mechanism, not pure trans sensing. Whether the broader signature is additionally amplified by classic "viral mimicry" (trans sensing of ERV transcripts) **cannot be separated in this probe-based, TE-blind assay and is not claimed**.
 
@@ -42,7 +42,7 @@ Two directions of one axis: **writer** (SETDB1/HUSH) inhibition → viral mimicr
 
 ## Rigor and reproducibility
 
-- **Independent DESeq2 reproduces the authors' own differential expression** (Pearson r = 0.94) — pipeline-correctness anchor (`results/de_crosscheck_*.csv`, `results/fig_crosscheck_vs_authors.png`).
+- **Independent DESeq2 reproduces the authors' own differential expression** (pooled Pearson r = 0.915, median per-target × condition r = 0.97) — pipeline-correctness anchor (`results/de_crosscheck_*.csv`, `results/fig_crosscheck_vs_authors.png`).
 - **Pre-registered thresholds**, confounder control (KRAB-ZNF clustering: raw ~5× → honest ~2×), and specificity controls (ERV vs LINE/SINE; H3K9me3-marked vs unmarked; core vs control knockdowns; SUV39 dissociation). See `docs/METHODS.md`; all numeric claims trace to named artifacts in `results/`.
 
 ## How Claude Science contributed
