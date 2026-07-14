@@ -1,0 +1,113 @@
+REVIEWER PASS — publication figure set (light + dark, SVG + PNG)
+Project: TE-aware reanalysis of Marson/Pritchard genome-scale CRISPRi Perturb-seq in primary human CD4+ T cells
+Date of pass: figure-set finalization
+
+Scope: 5 figures requested (i ERV-cis forest; ii interferon GSEA panel; iii SETDB1 DE volcano;
+iv r~0.94 concordance scatter; v ISG-signature UMAP faceted KD vs NTC). Every significance
+annotation was re-derived from the source tables and checked against what the figure states.
+
+====================================================================
+FINDINGS AND ACTIONS
+====================================================================
+
+[FIXED — significance annotation error, caught in this pass]
+  fig_interferon_gsea (Fig ii) and fig_setdb1_interferon_gsea (4-panel deliverable)
+  Original title claimed "IFN-a significant all 3 conditions". Source table
+  (setdb1_gsea_hallmark.csv) shows IFN-alpha FDR = 0.143 at Rest (NES 1.53) — NOT
+  FDR-significant at 0.05, though nominally significant (p<0.001) and the #1-ranked
+  positive Hallmark. The significance STARS in Panel B were already correct (ns at Rest),
+  so the title contradicted the plotted data.
+  ACTION: retitled to "Hallmark IFN-a top positive signature in all 3 conditions;
+  FDR-significant in both stimulated conditions, trends at Rest (NES 1.53 / FDR 0.14)".
+  Now consistent with the stars and the table. This matches the pre-registered honesty
+  norm: IFN-a significant all three was the hypothesis; the honest result is significant
+  in the two stimulated conditions and a strong trend at Rest.
+
+[FIXED — headline overstatement, flagged by auditor 498,507]
+  fig_erv_forest (Fig i). Original headline implied uniform collapse to honest ~2x.
+  Adjusted (logistic) OR@50kb: pooled core 2.23, SETDB1 2.36, TASOR 2.24, ATF7IP 1.80,
+  TRIM28 1.96 — but PPHLN1 4.12 and TASOR2 3.47 remain substantially above ~2x.
+  ACTION: headline reworded to "KRAB-ZNF correction shrinks ERV-proximity enrichment
+  toward the honest ~2x band (pooled core 2.2x; PPHLN1 & TASOR2 remain higher)".
+  Per-target points and CIs are fully visible in the same panel.
+
+====================================================================
+CHECKS THAT PASSED
+====================================================================
+
+fig_interferon_gsea / fig_setdb1_interferon_gsea (Fig ii)
+  [PASS] IFN-gamma stimulation-dependent: FDR Rest 0.73 (ns), Stim8hr <0.001 (***),
+         Stim48hr 0.007 (**) — matches stars and honesty norm.
+  [PASS] Panel A legend NES (1.53 / 2.28 / 2.30) == setdb1_gsea_hallmark.csv canonical
+         (1000-permutation) values. (Prior version had a 100-perm mismatch, already fixed.)
+  [PASS] IFN-a is the #1-ranked positive Hallmark in all three conditions.
+  [PASS] Panel C heatmap: ISG core (IFITM1/2/3, OAS1, MX1, RSAD2), STAT2, IRF9, APOL
+         family, CD274 all present; padj<0.10 dots drawn from de_module_recomputed.csv.
+  [PASS] Panel D ORA-vs-GSEA contrast: IFN-a present but not FDR-significant on the
+         thresholded de-repressed list (diluted by co-de-repressed KRAB-ZNFs) — correctly
+         motivates direction-aware GSEA on the full ranked signature.
+
+fig_setdb1_volcano (Fig iii)
+  [PASS] SETDB1 KD Stim48hr: 385 up (de-repressed), 81 down at padj<0.10 & |log2FC|>0.5.
+  [PASS] All 6 named ISG-core genes (IFITM1/2/3, OAS1, MX1, RSAD2) present and annotated.
+  [PASS] APOL family (APOL1/2/3/6) present and annotated.
+  [PASS] On-target SETDB1 flagged distinctly (log2FC -2.53, padj 1.9e-188); excluded from
+         the trans DE-gene counts.
+  [PASS] Thresholds stated on-figure; y-axis cap (90) stated to avoid misreading the
+         on-target outlier.
+
+fig_concordance_r094 (Fig iv)
+  [PASS] Pooled Pearson r = 0.915 (95% CI 0.909-0.920, n=246,768 gene-points, 8 targets);
+         annotation reports the TRUE computed value, not the ~0.94 target. Median
+         per-target x condition r = 0.97 also shown. The "094" in the filename is the
+         user's deliverable name / benchmark target; the caption does not overstate.
+  [PASS] y=x reference drawn; density hexbin (log color) appropriate for 247k points.
+
+fig_erv_forest (Fig i)
+  [PASS] Pooled-core adjusted OR@50kb = 2.23 matches erv_enrichment_results.csv.
+  [PASS] SUV39 specificity control adjusted OR@50kb CI [0.41, 5.28] spans 1 — no
+         enrichment, as required.
+  [PASS] Raw vs KRAB-ZNF-adjusted both shown per target; pre-registered honest band
+         (1.7-2.2) shaded.
+
+fig_isg_umap (Fig v)
+  [PASS] ISG-core score significantly higher in silencer-KD vs NTC in ALL three
+         conditions (Mann-Whitney one-sided KD>NTC: Rest p=1.8e-3, Stim8hr p=2.9e-2,
+         Stim48hr p=1.7e-3); stars match.
+  [PASS] Faceted KD vs NTC; colored by ISG-core signature (IFITM1/2/3, OAS1, MX1, RSAD2,
+         STAT2, IRF9, APOL1/2/3/6, CD274).
+
+====================================================================
+IMPORTANT LIMITATION — Fig v is PSEUDOBULK, not single-cell
+====================================================================
+The user requested "a UMAP of the CD4+ cells". A true single-cell UMAP was determined to
+be INFEASIBLE with the available resources and is reported transparently rather than faked:
+  - The 12 donor x condition cell files total ~1.74 TB (each ~140 GB, ~3.07M cells).
+  - Their X matrices are stored as ~1.7M tiny HDF5 chunks; over the public S3 endpoint
+    (~10 MB/s, no random-access index) a single scattered cell-row read costs ~12 s, and
+    even reading the 25 MB indptr does not complete in 600 s.
+  - Module-KD cells are fully scattered (2,191 per file = 2,191 singleton row-runs across
+    the whole file) so there is no contiguous block to stream; per-row extraction would be
+    ~60 h/file and whole-array streaming ~4 h/file, x12 files.
+  - No remote compute target was available (list_compute empty).
+Fig v is therefore built at the PSEUDOBULK level: UMAP of 11,184 module-KD + NTC pseudobulk
+profiles (the same objects used for the DESeq2 reproduction), colored by ISG-core score,
+faceted silencer-KD vs NTC. This shows the requested biology (the interferon program rising
+under silencer knockdown) and is fully reproducible locally. The figure title and this
+review both label it "pseudobulk" explicitly. The single-cell version is deferred to an
+environment with either the cell-ranger-indexed local h5ads or adequate remote compute.
+
+====================================================================
+GENERAL
+====================================================================
+  [PASS] All 5 figures emitted in light + dark themes, PNG + SVG (20 files).
+  [PASS] Data colors consistent across themes; axis/writer=eraser=reader palette consistent
+         with the candidate-ranking figure.
+  [PASS] Text-overlap check run on each; residual reported overlaps confirmed to be
+         axis-title / legend-title bounding-box false positives.
+  [PASS] Demonstrated vs hypothesized kept separate; no therapeutic claim on any figure.
+
+OVERALL: PASS after 2 corrections (1 significance-annotation error caught in this pass,
+1 headline overstatement from a prior auditor finding). All significance stars now match
+their source tables; the one genuine scientific caveat (Fig v pseudobulk substitution) is
+disclosed on the figure and here.
