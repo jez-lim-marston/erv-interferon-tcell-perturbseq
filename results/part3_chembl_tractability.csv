@@ -1,12 +1,12 @@
-node,axis,role,chembl_target_id,has_chembl_target,n_compounds_uM_or_better,n_compounds_sub100nM,best_pchembl,max_clinical_phase,n_curated_mechanisms,best_potency_nM,clinical_status,tractability_call
-KDM4C,eraser,H3K9me3 demethylase (eraser),CHEMBL6175,True,772,197,9.26,,0.0,0.55,preclinical (max_phase = null/none),high (rich sub-100nM chemistry)
-KDM4B,eraser,H3K9me3 demethylase (eraser),CHEMBL3313832,True,96,46,8.4,,0.0,3.98,preclinical (max_phase = null/none),low (isolated tool compounds)
-SETDB1,writer,H3K9 methyltransferase (writer),CHEMBL2321646,True,9,1,7.1,,0.0,79.43,preclinical (max_phase = null/none),low (isolated tool compounds)
-KDM4A,eraser,H3K9me3 demethylase (eraser),CHEMBL5896,True,230,65,8.7,,0.0,2.0,preclinical (max_phase = null/none),high (rich sub-100nM chemistry)
-TASOR,writer,HUSH core (writer complex),,False,0,0,,,,,preclinical (max_phase = null/none),none (no ChEMBL target)
-TRIM28,writer,KAP1 scaffold/corepressor (writer complex),CHEMBL3769297,True,1,1,7.1,,0.0,79.43,preclinical (max_phase = null/none),low (isolated tool compounds)
-PPHLN1,writer,HUSH subunit (writer complex),CHEMBL6067412,True,1,0,,,,,preclinical (max_phase = null/none),minimal (few weak binders)
-ATF7IP,writer,SETDB1 stabiliser (writer complex),,False,0,0,,,,,preclinical (max_phase = null/none),none (no ChEMBL target)
-CBX1,reader,HP1β reader,CHEMBL1741193,True,4,0,,,,,preclinical (max_phase = null/none),minimal (few weak binders)
-CBX3,reader,HP1γ reader,CHEMBL3826866,True,2,0,,,,,preclinical (max_phase = null/none),minimal (few weak binders)
-CBX5,reader,HP1α reader,CHEMBL3826867,True,1,0,,,,,preclinical (max_phase = null/none),minimal (few weak binders)
+node,axis,role,chembl_target_id,has_chembl_target,n_compounds_uM_or_better,n_compounds_sub100nM,best_pchembl,max_clinical_phase,n_curated_mechanisms,best_potency_nM,tractability_call,clinical_status_corrected
+KDM4C,eraser,H3K9me3 demethylase (eraser),CHEMBL6175,True,772,197,9.26,3.0,0.0,0.55,high (rich sub-100nM chemistry),"clinical-stage mechanism inhibitor exists: zavondemstat (Ph2, KDM4 inhibitor)"
+KDM4B,eraser,H3K9me3 demethylase (eraser),CHEMBL3313832,True,96,46,8.4,4.0,0.0,3.98,low (isolated tool compounds),"clinical-stage mechanism inhibitor exists: zavondemstat (Ph2, KDM4 inhibitor)"
+SETDB1,writer,H3K9 methyltransferase (writer),CHEMBL2321646,True,9,1,7.1,0.0,0.0,79.43,low (isolated tool compounds),preclinical only (no clinical-stage compound with recorded activity)
+KDM4A,eraser,H3K9me3 demethylase (eraser),CHEMBL5896,True,230,65,8.7,4.0,0.0,2.0,high (rich sub-100nM chemistry),"clinical-stage mechanism inhibitor exists: zavondemstat (Ph2, KDM4 inhibitor)"
+TASOR,writer,HUSH core (writer complex),,False,0,0,,,,,none (no ChEMBL target),preclinical only (no clinical-stage compound with recorded activity)
+TRIM28,writer,KAP1 scaffold/corepressor (writer complex),CHEMBL3769297,True,1,1,7.1,0.0,0.0,79.43,low (isolated tool compounds),preclinical only (no clinical-stage compound with recorded activity)
+PPHLN1,writer,HUSH subunit (writer complex),CHEMBL6067412,True,1,0,,0.0,,,minimal (few weak binders),preclinical only (no clinical-stage compound with recorded activity)
+ATF7IP,writer,SETDB1 stabiliser (writer complex),,False,0,0,,,,,none (no ChEMBL target),preclinical only (no clinical-stage compound with recorded activity)
+CBX1,reader,HP1β reader,CHEMBL1741193,True,4,0,,0.0,,,minimal (few weak binders),preclinical only (no clinical-stage compound with recorded activity)
+CBX3,reader,HP1γ reader,CHEMBL3826866,True,2,0,,2.0,,,minimal (few weak binders),"no mechanism-directed clinical compound; only off-target hits (max_phase=2, uM/promiscuous)"
+CBX5,reader,HP1α reader,CHEMBL3826867,True,1,0,,0.0,,,minimal (few weak binders),preclinical only (no clinical-stage compound with recorded activity)
