@@ -9,10 +9,12 @@ ran in Claude Science and produced the named artifacts under `../results/`.
 - **Faithful, not refactored.** `pipeline/*.py` and `as_run_analysis_log.py` are exported
   verbatim from the execution log, cell by cell, in execution order. They record exactly what
   was run — including interactive iteration — rather than a cleaned-up importable package.
-- **Compute split.** Claude Science orchestrated the genome-scale analysis, statistics, and
-  figures with reproducible named artifacts and Plan-mode checkpoints; a companion
-  Claude Code + AWS environment handled heavy data processing (its scripts are not in this
-  export); a Reviewer agent audited the figures and caught a figure-significance error.
+- **What produced this code.** The Claude Science session ran the entire orchestration-side
+  analysis itself — remote partial-read S3 slicing, pseudobulk DESeq2 reproduction, ERV-cis
+  enrichment, GSEA/ORA, ChEMBL ranking, and the figure set — with reproducible named artifacts
+  and Plan-mode checkpoints, and a Reviewer pass that caught a figure-significance error. The
+  pre-existing `../results/` tables and `../docs/` narrative in this repo predate this code and
+  were prepared separately; their generating scripts are not part of this export.
 - **Credentials scrubbed.** All cells that touched credentials/tokens or git authentication,
   and the code-export machinery itself, are excluded. No secrets are present.
 

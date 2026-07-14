@@ -77,12 +77,11 @@ In primary human CD4⁺ T cells at genome scale, the SETDB1/HUSH silencing modul
 
 *(Graphical abstract: `docs/GRAPHICAL_ABSTRACT.md`.)*
 
-## How this was built (compute split)
+## How this was built
 
 Claude Science orchestrated the genome-scale analysis, statistics, and figures with
-reproducible named artifacts and Plan-mode checkpoints; a companion Claude Code + AWS
-environment handled heavy data processing; a Reviewer agent caught a figure-significance
-error.
+reproducible named artifacts and Plan-mode checkpoints, including a Reviewer pass that caught a
+figure-significance error.
 
 The Claude Science orchestration side — which produced the artifacts under `code/` and the
 `results/figures/` figure set — covered: remote partial-read slicing of the 44 GB pseudobulk

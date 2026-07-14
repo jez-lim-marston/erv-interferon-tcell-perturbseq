@@ -5,8 +5,8 @@ Every successful python/bash ANALYSIS cell for this project, in execution order,
 from the Claude Science execution log. Excluded: credential/auth cells, git-plumbing, and
 code-export/recon machinery. The pipeline/ scripts are these same cells grouped by stage.
 
-Companion note: the heavy data-preparation steps that back some results/ tables ran in a
-separate Claude Code + AWS environment; that environment's scripts are not in this frame's log.
+Note: the pre-existing results/ tables and docs/ narrative in this repo predate this analysis
+and were prepared separately; their generating scripts are not part of this log.
 
 Env `scte`: python 3.11.15; scanpy 1.11.5, anndata 0.12.19, pydeseq2 0.5.4, pertpy 1.0.3,
 formulaic-contrasts 1.0.0, gseapy 1.3.0, bioframe, boto3, s3fs.
