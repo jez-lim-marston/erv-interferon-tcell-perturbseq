@@ -24,5 +24,17 @@ KDM4A/B/C were present in the genome-scale library and tested directly (same Par
 ## Druggability
 ChEMBL mechanism-of-action + best bioactivity for each node; ranked candidate list combining phenotype strength, ERV-specificity, selectivity/essentiality, and chemical tractability. `results/part3_chembl_tractability.csv`, `results/part3_ranked_candidates.csv`.
 
+## Compute split & reproducibility
+
+Claude Science orchestrated the genome-scale analysis, statistics, and figures with reproducible named artifacts and Plan-mode checkpoints; a companion Claude Code + AWS environment handled heavy data processing; a Reviewer agent caught a figure-significance error. Data were read by partial-range requests from the public S3 bucket (no full download); all thresholds were pre-registered before results (`methods/PREREG_erv.md`); figures are emitted in light + dark themes as both SVG and PNG (`results/figures/`); and each genome-scale run was gated behind a Plan-mode checkpoint. The independent Reviewer pass (`methods/REVIEW_figures.txt`) re-derived every annotated statistic from source tables and corrected figure titles that had overstated IFN-α significance at the Rest baseline.
+
+## Graphical abstract
+
+Full concept, caption, and legend: `docs/GRAPHICAL_ABSTRACT.md`.
+
+**Caption.** In resting human CD4⁺ T cells, the SETDB1/HUSH H3K9me3 machinery keeps endogenous retroviruses — ancient "viral fossils" co-opted as *cis*-regulatory elements of interferon genes — switched off. Genome-scale CRISPRi knockdown of the silencing module de-represses interferon-stimulated genes enriched next to these silenced ERVs (confounder-controlled ~2× enrichment; SUV39 specificity control; authors' differential expression reproduced at *r* ≈ 0.92–0.94), revealing an ERV-gated interferon program rather than the hypothesized Th1/Th2 axis. This defines a bidirectional, druggable interferon rheostat; the two predicted therapeutic directions (viral-mimicry immuno-oncology and restraint of interferon-driven autoimmunity) are motivated hypotheses, not demonstrated outcomes.
+
+**Two-line legend.** *The SETDB1/HUSH–ERV–interferon axis is a bidirectional, druggable rheostat in human CD4⁺ T cells.* Releasing the H3K9me3 lock (CRISPRi knockdown) de-represses ERV-adjacent interferon-stimulated genes and triggers an interferon response; the two directions shown — viral-mimicry immuno-oncology (dial up) and restraint of interferon-driven autoimmunity (dial down) — are *predicted* therapeutic hypotheses, not demonstrated outcomes.
+
 ## Limitations
 Mouse→human transfer of the mechanistic prior; CRISPRi partial knockdown ≠ genetic knockout; H3K9me3 (not SETDB1) ChIP; coarse TSS-window cis-assignment; specificity relative not absolute; viral mimicry from SETDB1 loss is a known phenomenon (this is a clean human-CD4 demonstration, not a discovery); no therapeutic claim.

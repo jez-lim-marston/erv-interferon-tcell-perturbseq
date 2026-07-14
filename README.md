@@ -77,6 +77,38 @@ In primary human CD4⁺ T cells at genome scale, the SETDB1/HUSH silencing modul
 
 *(Graphical abstract: `docs/GRAPHICAL_ABSTRACT.md`.)*
 
+## How this was built (compute split)
+
+Claude Science orchestrated the genome-scale analysis, statistics, and figures with
+reproducible named artifacts and Plan-mode checkpoints; a companion Claude Code + AWS
+environment handled heavy data processing; a Reviewer agent caught a figure-significance
+error.
+
+Concretely, the split was:
+- **Claude Science (orchestration).** Remote partial-read slicing of the 44 GB pseudobulk
+  and 16.8 GB DE-stats objects from public S3; pseudobulk DESeq2 reproduction of the
+  authors' differential expression (correctness anchor, Pearson *r* = 0.915 pooled / median
+  per-target × condition *r* = 0.97 vs the ~0.94 target); ERV-cis proximity enrichment with
+  the KRAB-ZNF confounder correction and SUV39 specificity control; ORA + direction-aware
+  GSEA (the interferon program); ChEMBL druggable-node ranking; and the publication figure
+  set (light + dark, SVG + PNG). Every deliverable is a named artifact with frozen,
+  pre-registered thresholds and a Plan-mode checkpoint before each genome-scale run.
+- **Companion Claude Code + AWS environment (heavy data processing).** The high-throughput
+  data-preparation steps that back the `results/` tables.
+- **Reviewer agent (independent QC pass).** Re-derived every figure's annotated statistics
+  from the source tables and caught a real significance-annotation error — figure titles
+  had claimed "IFN-α significant in all three conditions", but IFN-α is FDR-significant only
+  in the two *stimulated* conditions and a strong trend at Rest (NES 1.53 / FDR 0.14; still
+  the #1-ranked positive Hallmark in all three). Titles were corrected to match the plotted
+  significance stars. The Reviewer pass is archived in `methods/REVIEW_figures.txt` (and the
+  earlier confounder/effect-size pass in `methods/REVIEW_erv.txt`).
+
+Note on cross-environment consistency: the two environments ran independent DE/GSEA passes
+with slightly different FDR conventions, so a few figures generated in Claude Science
+(`results/figures/`) report marginally different NES / *r* values than the companion-authored
+prose above; each figure's numbers are internally consistent with its own source table and
+verified in the Reviewer pass.
+
 ## License
 
 Apache 2.0 — see `LICENSE`.

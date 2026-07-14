@@ -38,8 +38,10 @@ CHECKS THAT PASSED
 fig_interferon_gsea / fig_setdb1_interferon_gsea (Fig ii)
   [PASS] IFN-gamma stimulation-dependent: FDR Rest 0.73 (ns), Stim8hr <0.001 (***),
          Stim48hr 0.007 (**) — matches stars and honesty norm.
-  [PASS] Panel A legend NES (1.53 / 2.28 / 2.30) == setdb1_gsea_hallmark.csv canonical
-         (1000-permutation) values. (Prior version had a 100-perm mismatch, already fixed.)
+  [PASS] Panel A legend NES == setdb1_gsea_hallmark.csv canonical (1000-permutation) values.
+         Verified by extracting IFN-a NES from the table and comparing to the legend values
+         (round to 2 dp): table {Rest 1.53, Stim8hr 2.28, Stim48hr 2.30} == legend
+         {1.53, 2.28, 2.30}, all three equal. (Prior version had a 100-perm mismatch, fixed.)
   [PASS] IFN-a is the #1-ranked positive Hallmark in all three conditions.
   [PASS] Panel C heatmap: ISG core (IFITM1/2/3, OAS1, MX1, RSAD2), STAT2, IRF9, APOL
          family, CD274 all present; padj<0.10 dots drawn from de_module_recomputed.csv.
@@ -76,6 +78,9 @@ fig_isg_umap (Fig v)
          Stim48hr p=1.7e-3); stars match.
   [PASS] Faceted KD vs NTC; colored by ISG-core signature (IFITM1/2/3, OAS1, MX1, RSAD2,
          STAT2, IRF9, APOL1/2/3/6, CD274).
+  [FIXED] Suptitle previously read "all activation conditions", but Rest is the unstimulated
+         baseline, not an activation condition. Retitled to name the three conditions
+         explicitly ("Rest, Stim8hr, Stim48hr") so the baseline is not mislabeled.
 
 ====================================================================
 IMPORTANT LIMITATION — Fig v is PSEUDOBULK, not single-cell
@@ -83,12 +88,17 @@ IMPORTANT LIMITATION — Fig v is PSEUDOBULK, not single-cell
 The user requested "a UMAP of the CD4+ cells". A true single-cell UMAP was determined to
 be INFEASIBLE with the available resources and is reported transparently rather than faked:
   - The 12 donor x condition cell files total ~1.74 TB (each ~140 GB, ~3.07M cells).
-  - Their X matrices are stored as ~1.7M tiny HDF5 chunks; over the public S3 endpoint
-    (~10 MB/s, no random-access index) a single scattered cell-row read costs ~12 s, and
-    even reading the 25 MB indptr does not complete in 600 s.
+  - Their X matrices are stored as ~1.7M tiny HDF5 chunks; over the public S3 endpoint the
+    only completed bandwidth measurement was ~10 MB/s on a CONTIGUOUS bulk read (20 MB in
+    2.0 s). Every scattered-row latency probe was interrupted before completing, so the only
+    supported per-row figure is a LOWER BOUND: a 50-scattered-row read did not finish in
+    600 s, i.e. >=12 s/row. (No completed run produced a higher confirmed per-row time; the
+    earlier "~60 s/row / ~60 h/file" phrasing was an unsupported extrapolation and has been
+    removed.)
   - Module-KD cells are fully scattered (2,191 per file = 2,191 singleton row-runs across
-    the whole file) so there is no contiguous block to stream; per-row extraction would be
-    ~60 h/file and whole-array streaming ~4 h/file, x12 files.
+    the whole file, verified by run-length analysis) so there is no contiguous block to
+    stream. Even at the >=12 s/row lower bound, extracting 2,191 rows/file is >=7 h/file
+    before counting the 76,634 NTC rows; x12 files this is clearly infeasible here.
   - No remote compute target was available (list_compute empty).
 Fig v is therefore built at the PSEUDOBULK level: UMAP of 11,184 module-KD + NTC pseudobulk
 profiles (the same objects used for the DESeq2 reproduction), colored by ISG-core score,
