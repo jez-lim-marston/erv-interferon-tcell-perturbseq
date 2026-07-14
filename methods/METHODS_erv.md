@@ -70,7 +70,10 @@ Raw silenced-ERV enrichment of de-repressed genes (±50 kb): SETDB1
 ### Corrected enrichment collapses to an honest ~2×
 After KRAB-ZNF correction, the **pooled module-core** OR (±50 kb) is
 **2.07 (1.80–2.39)** (KRAB-ZNF excluded) / **2.23 (1.94–2.57)** (logistic-adjusted),
-falling squarely in the pre-registered honest band (OR 1.7–2.2). At ±100 kb the
+at or just inside the upper edge of the pre-registered honest band (OR 1.7–2.2):
+the exclusion estimate (2.07) sits inside it and the logistic estimate (2.23) is
+marginally above the 2.2 bound — both consistent with the pre-declared honest ~2×.
+At ±100 kb the
 adjusted OR is **1.86 (1.62–2.13)**. Per target, SETDB1 collapses from
 3.22 (2.80–3.71) raw to **2.36 (2.02–2.75)** adjusted. The enrichment remains
 **significant** (CI excludes 1) for the module core.

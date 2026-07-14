@@ -1,10 +1,12 @@
-rank,candidate,druggability_score,erv_validation,confidence_flag
-1,KDM4C,7.95,directly measured (antagonism),"LEAD ERV-MECHANISM NODE — DIRECTLY MEASURED. ERV-proximal antagonism to SETDB1 (r=-0.27) confirmed by direct perturbation (no longer inferred); matches H3K9me3-eraser mechanism in RA literature; strong selective chemistry (1.3 nM, 38 sub-100nM). Antagonism is modest/locus-specific (rheostat, not switch): nudges ERV-proximal genes, does NOT reverse phenotype (module score & genome-wide null under paralog redundancy)."
-2,KDM4B,6.75,NOT ERV-validated (cGAS-axis literature only),"DISTINCT CANDIDATE — cGAS-AXIS, LITERATURE-ONLY, NOT ERV-VALIDATED. Does NOT show ERV-proximal antagonism in our data (r~0); rationale rests on the SEPARATE cGAS/IFN mechanism (published cGAS literature), not our ERV finding. Strong selective chemistry (4 nM). Do NOT present as our validated eraser."
-3,PPHLN1,5.95,—,"MECHANISM STRONG / CHEMISTRY THIN — HUSH, robust ERV-enrichment (Part 2); little/no chemical matter."
-4,KDM4A,5.65,directly measured (antagonism),"SUPPORTING MECHANISTIC EVIDENCE, NOT THE DRUG CANDIDATE — also shows ERV-proximal antagonism (r=-0.27, directly measured) but weak chemistry (700 nM, 0 sub-100nM). Corroborates the eraser mechanism; deprioritized as a candidate."
-5,SETDB1,5.65,—,"MECHANISM STRONGEST / DRUGGABILITY POOR — primary ERV-enrichment hit but pan-essential; probe exists, selective inhibition implausible."
-6,TASOR,4.95,—,"MECHANISM STRONG / CHEMISTRY THIN — HUSH, robust ERV-enrichment; undrugged."
-7,KZFP_layer,4.800000000000001,—,"REGULATORY-HIERARCHY NODE / GENETICALLY UNSUPPORTED + UNDRUGGED — the recruiters, high selectivity in principle, but autoimmune GWAS DEPLETED and no chemical matter; hypothesis-generating only."
-8,TRIM28,3.55,—,"UNDERPOWERED MECHANISM / DRUGGABILITY POOR — few up-genes, null ERV-enrichment; broadly essential."
-9,ATF7IP,2.65,—,NEAR-NULL (weak KD) — absence of effect not interpretable; undrugged.
+rank,node,axis,role,directly_measured,composite_score,tractability_score,mechanism_score,has_chembl_target,n_compounds_uM_or_better,n_compounds_sub100nM,best_pchembl,max_clinical_phase,n_curated_mechanisms,antag_median_log2FC_stim48,antag_wilcoxon_p_stim48,antag_anticorr_r_stim48,clinical_stage_compound,is_lead_node
+1,KDM4C,eraser,H3K9me3 demethylase (eraser),True,0.896,0.99,0.801,True,772,197,9.26,,0.0,-0.0999931060332696,1.2758491595898651e-09,-0.2002597829211908,none (preclinical only),True
+2,KDM4B,eraser,H3K9me3 demethylase (eraser),True,0.693,0.791,0.595,True,96,46,8.4,,0.0,0.0156136906259417,0.903597970196897,-0.1486413222187516,none (preclinical only),False
+3,SETDB1,writer,H3K9 methyltransferase (writer),True,0.689,0.378,1.0,True,9,1,7.1,,0.0,,,,none (preclinical only),False
+4,KDM4A,eraser,H3K9me3 demethylase (eraser),True,0.632,0.842,0.423,True,230,65,8.7,,0.0,-0.1417585885984576,3.6082961623412283e-09,-0.1056773039825619,none (preclinical only),False
+5,TASOR,writer,HUSH core (writer complex),True,0.4,0.0,0.8,False,0,0,,,,0.1499747566652285,0.0001886325608497,0.0805784832771992,none (preclinical only),False
+6,TRIM28,writer,KAP1 scaffold/corepressor (writer complex),True,0.389,0.378,0.4,True,1,1,7.1,,0.0,0.1139363860582862,0.0090792056370143,0.0770741389050019,none (preclinical only),False
+7,PPHLN1,writer,HUSH subunit (writer complex),True,0.375,0.0,0.75,True,1,0,,,,0.3245069887592324,3.0453264209300453e-15,0.1830924319795017,none (preclinical only),False
+8,ATF7IP,writer,SETDB1 stabiliser (writer complex),True,0.25,0.0,0.5,False,0,0,,,,0.1770912896511139,2.0836493109149818e-17,0.3564124714146848,none (preclinical only),False
+9,CBX1,reader,HP1β reader,True,0.0,0.0,0.0,True,4,0,,,,0.1072035403845685,2.0649849208679873e-05,0.1404773487562164,none (preclinical only),False
+10,CBX3,reader,HP1γ reader,True,0.0,0.0,0.0,True,2,0,,,,0.1524594818789499,3.7475153987487607e-10,0.292546721163404,none (preclinical only),False
+11,CBX5,reader,HP1α reader,True,0.0,0.0,0.0,True,1,0,,,,0.0107997486141275,0.819878776362378,0.086453868935135,none (preclinical only),False

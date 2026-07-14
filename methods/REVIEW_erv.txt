@@ -1,0 +1,31 @@
+
+REVIEWER PASS — ERV-cis-proximity enrichment module (against project honesty norms)
+
+[PASS] Pre-registration written & frozen BEFORE computation (PREREG_erv.md): DE-gene def,
+       background universe, silenced-ERV def, windows, statistics, KRAB-ZNF def, success rules.
+[PASS] Raw AND corrected BOTH reported (erv_enrichment_results.csv + fig panel B): the 5x-ish
+       raw inflation is the headline, not buried. Pooled core raw 2.98x -> 2.07x/2.24x corrected.
+       Individual raw up to 7.7x (PPHLN1) / 14.4x (TASOR2) reported honestly.
+[PASS] Confounder mechanism quantified, not asserted: KRAB-ZNF 89% vs 24% near silenced ERV
+       (3.65x); 6-27x over-represented among de-repressed genes vs 2.7% bg; KRAB-ZNF OR ~18-25
+       in logistic model = dominant driver. Two independent corrections (exclusion + logistic) agree.
+[PASS] Effect sizes + 95% CIs throughout; no bare p-values. BH-FDR reported across grid.
+[PASS] Specificity control present and NULL: SUV39H1/2 pooled OR spans 1 in every analysis
+       (raw 1.78 [0.63-5.38], adj 1.47 [0.41-5.28]). Pre-registered pass criterion met.
+       Controls confirmed effectively knocked down (DE step) -> true negative, not failed perturbation.
+[PASS] TE-blind framing preserved: enrichment = cis-proximity of protein-coding genes to ERVs;
+       'silenced' = H3K9me3 mark, not measured transcription. Stated in PREREG + METHODS.
+[PASS] Demonstrated vs hypothesized separated: this is a demonstrated cis-proximity axis.
+       No interferon-program or druggable claim made here (later steps). No therapeutic claim.
+[PASS] Honest limitations declared: reference (not donor-matched) H3K9me3; H3K9me3-as-silencing
+       proxy; proximity != causation; weak-target wide CIs; window/peak-set robustness reported.
+[PASS] Provenance fully cited: UCSC rmsk, 3 ENCODE accessions + file IDs, GENCODE v44,
+       InterPro IPR001909. Reproducible from public sources.
+[PASS] Figure: figure-style applied; overlap check clean; panel B perceptually verified;
+       pre-registered honest band drawn; OR=1 reference; log axes; controls flagged;
+       claim-title states raw '~3x core, up to ~14x for KRAB-ZNF-dominated targets'
+       -> '~2x' corrected, matching the TASOR2 point (14.4x) plotted in Panel A.
+       [CORRECTED v2: prior caption said '~3-8x', understating the plotted 14.4x max.]
+
+SCOPE CHECK: Stayed within approved plan steps 1-7. No expansion. Off-scope ideas: none pursued.
+DEFERRED: GitHub push held pending token Contents:write permission (analysis artifacts unaffected).
